@@ -1,0 +1,166 @@
+body, html {
+    height: 100%;
+    margin: 0;
+    background-color: #093b2b; /* Green background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hidden {
+    display: none !important; /* Ensure the element is hidden */
+    opacity: 0; /* Start with elements fully transparent */
+    transition: opacity 1s ease-in-out; /* Adjust the fade-out duration and easing */
+}
+
+#overlay {
+    position: fixed; /* Use fixed positioning */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black */
+    z-index: 10; /* Lower than the modal but higher than the page content */
+    /* Ensure overlay is visible by default and transitions for fading in/out */
+    opacity: 1;
+    transition: opacity 1s ease-in-out;
+}
+#modal-container{
+    display: flex;
+    align-items: center;
+}
+
+.modal-content {
+    position: relative;
+}
+
+.modal {
+    background-color: white;
+    width: 45%;
+    height: 60%;
+    padding: 70px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 0px;
+    position: absolute;
+    top: 50%; /* Center vertically */
+    left: 50%; /* Center horizontally */
+    transform: translate(-50%, -50%);
+    z-index: 20; /* Higher than the overlay */
+    /* Set up for transition effect but hidden by default */
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+}
+
+/* When not hidden, modals should be fully visible */
+.modal:not(.hidden) {
+    opacity: 1;
+}
+
+
+#login {
+    background-color: white;
+    width: 45%;
+    height: 60%;
+    padding: 70px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 0px;
+    position: absolute;
+    top: 50%; /* Center vertically */
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+
+.modal-content, .stats div, h1{
+    font-family: "Montserrat", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    margin: 40px 0px;
+}
+
+img{
+    height: 100px;
+    width: 500px;
+    transform: translateX(-7%);
+}
+
+.stats {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    margin-top: 30px;
+}
+
+.stats div {
+    flex-basis: 22%;
+    font-weight: 400;
+    font-size: 20px;
+}
+
+.stats div:not(:last-child) {
+    border-right: 2px solid goldenrod; /* Golden-colored line */
+    margin-right: 20px; /* Add some space between the line and the next div */
+    padding-right: 20px; /* Add some padding to prevent the content from touching the line */
+}
+
+
+.hidden {
+    display: none !important; /* Ensure the element is hidden */
+    opacity: 0; /* Start with elements fully transparent */
+    transition: opacity 1s ease-in-out; /* Adjust the fade-out duration and easing */
+}
+
+.login {
+    display: flex;
+}
+
+.login__input {
+    border: none;
+    padding: 0.5rem 2rem;
+    font-size: 1.6rem;
+    font-family: inherit;
+    text-align: center;
+    width: 12rem;
+    border-radius: 10rem;
+    margin-right: 1rem;
+    color: gray;
+    border: 1px solid #fff;
+    transition: all 0.3s;
+}
+
+.login__input:focus {
+    outline: none;
+    border: 1px solid #ccc;
+}
+
+.login__input::placeholder {
+    color: grey;
+}
+
+.login__btn {
+    border: none;
+    background: none;
+    font-size: 2.2rem;
+    color: grey;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.login__btn:hover{
+    outline: darkgrey;
+    color: #777;
+}
+.login__btn:focus{
+    outline: grey;
+    color: #777;
+}
+.btn--sort:hover{
+    outline: darkgrey;
+    color: #777;
+}
+.btn--sort:focus {
+    outline: grey;
+    color: #777;
+}

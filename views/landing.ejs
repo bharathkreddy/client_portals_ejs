@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modal Cycling</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+          rel="stylesheet">
+    <link rel="stylesheet" href="/css/stylelanding.css">
+</head>
+
+<body>
+
+<% if(locals.clientObj){ %>
+    <header class="header">
+        <nav class="nav">
+            <img src="images/<%= clientObj.img %>" alt="Bankist logo" class="nav__logo" id="logo"/>
+            <ul class="nav__links">
+                <% clientObj.services.forEach((service, idx)=>{ %>
+                    <li class="nav__item">
+                        <% if(service === 'Fund Accounting'){ %>
+                            <a class="nav__link nav__link--btn btn--show-modal"
+                               href="#section--<%= idx + 1 %>"><%= service %></a>
+                        <% }else{ %>
+                            <a class="nav__link" href="#section--<%= idx + 1 %>"><%= service %></a>
+                        <% } %>
+                    </li>
+                <% }) %>
+            </ul>
+        </nav>
+
+        <div class="header__title">
+            <!-- <h1 onclick="alert('HTML alert')"> -->
+            <h1>
+                Your Todays assets are worth
+                <!-- Green highlight effect -->
+                <span class="highlight"><%= clientObj.nav %></span>
+                vs yesterdays <br/>
+                <span class="highlight"><%= clientObj.priorNav %></span>
+            </h1>
+            <h4><%= clientObj.name %></h4>
+            <button class="btn--text btn--scroll-to">Learn more &DownArrow;</button>
+            <img
+                    src="images/<%= clientObj.img %>"
+                    class="header__img"
+                    alt="Minimalist logo"
+            />
+        </div>
+
+    </header>
+<% } %>
+<script src="/script/scriptlanding.js"></script>
+</body>
+</html>
+
